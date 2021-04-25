@@ -1,0 +1,6 @@
+4_ledc_sdk/ledc.bin
+4_ledc_sdk/ledc.dis
+4_ledc_sdk/ledc.elf
+4_ledc_sdk/main.o
+4_ledc_sdk/start.o
+.vscode/c_cpp_properties.json
