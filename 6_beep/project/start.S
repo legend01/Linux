@@ -1,13 +1,36 @@
 /***************************************************************
 Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
 文件名	: 	 start.s
-作者	   : 左忠凯
 版本	   : V1.0
 描述	   : ZERO-I.MX6UL/I.MX6ULL开发板启动文件，完成C环境初始化，
 		 C环境初始化完成以后跳转到C代码。
-其他	   : 无
-论坛 	   : www.openedv.com
-日志	   : 初版 2019/1/3 左忠凯修改
+汇编系统预定义了一些段名：
+.text 表示代码段
+.data 初始化数据段
+.bss 未初始化数据段
+.rodata 只读数据段
+
+常见的伪操作有：
+.byte 	定义单字节数据
+.short	定义双字节数据
+.long	定义4字节数据
+.equ	赋值语句 如:.equ num, 0x12 表示num=0x12
+.align	数据字节对齐 如:.align 4表示4字节对齐
+.end	表示源文件结束
+.global	定义全局符号 
+
+CPSR 程序状态寄存器 Current program status register,在任何处理器模式下被访问
+
+MRS 					//将特殊寄存器CPSR里数据传递到R0中
+
+BIC Rd,Rn,#immed 		Rd = Rn & (~#immed)位清除
+ORR Rd,Rn,#immed		Rd = Rn | #immed 按位或
+
+MSR						MSR 指令用来将普通寄存器的数据传递给特殊寄存器，也就是写特殊寄存器，写特殊寄存器只能使用 MSR
+
+//LDR主要用于从存储器中加载数据到寄存器Rx中
+
+B						跳转指令, 用于跳轉函數
 **************************************************************/
 
 .global _start  		/* 全局标号 */
