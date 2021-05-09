@@ -85,3 +85,10 @@
 6_beep/SI/beep.si4project/cache/parse/bsp_led_bsp_led.h.sisc
 6_beep/SI/beep.si4project/cache/parse/bsp_clk_bsp_clk.c.sisc
 6_beep/SI/beep.si4project/cache/parse/bsp_beep_bsp_beep.h.sisc
+6_beep/beep.bin
+6_beep/obj/bsp_beep.o
+6_beep/obj/bsp_clk.o
+6_beep/obj/bsp_delay.o
+6_beep/obj/bsp_led.o
+6_beep/obj/main.o
+6_beep/obj/start.o
