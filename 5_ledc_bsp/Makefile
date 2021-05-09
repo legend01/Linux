@@ -30,18 +30,18 @@ OBJS			:= $(SOBJS) $(COBJS) #OBJS变量是SOBJS和COBJS的集合 编译完成后
 
 VPATH			:= $(SRCDIRS) #VPATH指定搜索目录,编译时候需要的.S和.c文件都会在SRCDIRS中指定的目录中查找
 
-.PHONY: clean
+.PHONY: clean #指定一个伪目标clean
 	
-$(TARGET).bin : $(OBJS)
-	$(LD) -Timx6ul.lds -o $(TARGET).elf $^
-	$(OBJCOPY) -O binary -S $(TARGET).elf $@
-	$(OBJDUMP) -D -m arm $(TARGET).elf > $(TARGET).dis
+$(TARGET).bin : $(OBJS)									#bsp.bin: obj/start.o obj/main.o obj/bsp_clk.o obj/bsp_led.o obj/bsp_delay.o
+	$(LD) -Timx6ul.lds -o $(TARGET).elf $^				#arm_linux_gnueabihf-ld -Timx6ul.lds -o bsp.elf obj/start.o obj/main.o obj/bsp_clk.o obj/bsp_led.o obj/bsp_delay.o $^-->所有依赖文件的集合就是OBJS这个变量的值域
+	$(OBJCOPY) -O binary -S $(TARGET).elf $@			#arm_linux_gnueabihf-objcopy -O binary -S bsp.elf bsp.bin $@--->目标集合就是bsp.bin
+	$(OBJDUMP) -D -m arm $(TARGET).elf > $(TARGET).dis	#arm_linux_gnueabihf-objdump -D -m arm bsp.elf > bsp.dis 反汇编生成bsp.dis
 
-$(SOBJS) : obj/%.o : %.S
-	$(CC) -Wall -nostdlib -c -O2  $(INCLUDE) -o $@ $<
+$(SOBJS) : obj/%.o : %.S								#其中obj/start.o : start.S
+	$(CC) -Wall -nostdlib -c -O2  $(INCLUDE) -o $@ $<	#arm_linux_gnueabihf-gcc -Wall -nostdlib -c -O2 -I imx6ul -I bsp/clk -I bsp/led -I bsp/delay -o bas.bin start.S
 
-$(COBJS) : obj/%.o : %.c
-	$(CC) -Wall -nostdlib -c -O2  $(INCLUDE) -o $@ $<
+$(COBJS) : obj/%.o : %.c								#其中boj/main.o obj/bsp_clk.o obj/bsp_led.o obj/bsp_delay.o : main.c bap_clk.c bsp_led.c bsp_delay.c
+	$(CC) -Wall -nostdlib -c -O2  $(INCLUDE) -o $@ $<	#arm_linux_gnueabihf-gcc -Wall -nostdlib -c -O2 -I imx6ul -I bsp/clk -I bsp/led -I bsp/delay -o bas.bin start.S
 	
 clean:
 	rm -rf $(TARGET).elf $(TARGET).dis $(TARGET).bin $(COBJS) $(SOBJS)
