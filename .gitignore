@@ -46,3 +46,10 @@
 5_ledc_bsp/.vscode/ipch/fde9a064e37b8a5f/MAIN.ipch
 5_ledc_bsp/.vscode/ipch/ebffd0a713d93732/BSP_DELAY.ipch
 4_ledc_sdk/load.imx
+5_ledc_bsp/bsp.bin
+5_ledc_bsp/obj/bsp_clk.o
+5_ledc_bsp/obj/bsp_led.o
+5_ledc_bsp/obj/main.o
+5_ledc_bsp/obj/start.o
+5_ledc_bsp/obj/bsp_delay.o
+5_ledc_bsp/bsp.elf
