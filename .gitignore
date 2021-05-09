@@ -120,3 +120,12 @@
 7_key/SI/key.si4project/cache/parse/bsp_clk_bsp_clk.c.sisc
 7_key/SI/key.si4project/cache/parse/imx6ul_MCIMX6Y2.h.sisc
 7_key/SI/key.si4project/cache/parse/bsp_beep_bsp_beep.c.sisc
+7_key/key.bin
+7_key/obj/bsp_clk.o
+7_key/obj/bsp_beep.o
+7_key/obj/bsp_delay.o
+7_key/obj/start.o
+7_key/obj/main.o
+7_key/obj/bsp_led.o
+7_key/obj/bsp_key.o
+7_key/obj/bsp_gpio.o

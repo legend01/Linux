@@ -48,7 +48,7 @@ $(TARGET).bin : $(OBJS)
 	$(OBJDUMP) -D -m arm $(TARGET).elf > $(TARGET).dis
 
 #obj/start.o:start.S 
-#arm-linux-gnueabihf-gcc -Wall -nostdlib -c -O2 -I imx6ul -I bsp/clk -I bsp/led -I bsp/delay -I bsp/beep -I bsp/gpio -I bsp/gpio -I bsp/key -o obj/start.o start.c
+#arm-linux-gnueabihf-gcc -Wall -nostdlib -c -O2 -I imx6ul -I bsp/clk -I bsp/led -I bsp/delay -I bsp/beep -I bsp/gpio -I bsp/gpio -I bsp/key -o obj/start.o start.S
 $(SOBJS) : obj/%.o : %.S
 	$(CC) -Wall -nostdlib -c -O2  $(INCLUDE) -o $@ $<
 #obj/bsp_beep.o:bsp_beep.c
