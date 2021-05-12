@@ -129,3 +129,12 @@
 7_key/obj/bsp_led.o
 7_key/obj/bsp_key.o
 7_key/obj/bsp_gpio.o
+8_clk/clk.bin
+8_clk/obj/bsp_beep.o
+8_clk/obj/bsp_clk.o
+8_clk/obj/bsp_led.o
+8_clk/obj/start.o
+8_clk/obj/main.o
+8_clk/obj/bsp_gpio.o
+8_clk/obj/bsp_delay.o
+8_clk/obj/bsp_key.o
