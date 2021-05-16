@@ -11,6 +11,19 @@
  * 描述：	_start函数，首先是中断向量表的创建\
  * 参考文档:ARM Cortex-A(armV7)编程手册V4.0.pdf P42，3 ARM Processor Modes and Registers（ARM处理器模型和寄存器）
  * 		 	ARM Cortex-A(armV7)编程手册V4.0.pdf P165 11.1.1 Exception priorities(异常)
+ LDR 加载指令 LDR R0, [R1] ;将R1的值加载到R0寄存器中
+ CPSID I ;关中断
+ MRC  ARM处理器的寄存器中的数据传送到协处理器的寄存器中
+mrc是协处理器命令。用于读取协处理器中的寄存器的数据到ARM处理器的寄存器里面。这句话的意思应该
+是读协处理器中的寄存器数据到ARM处理器的r0里面。应该是ARM访问MMU，一般cp15就是MMU。
+<MCR|MRC>{cond} p#, <expression1>,Rd,cn,cm{, <expression2>}
+MRC 2,5,R3,c5,c6 ;请求协处理器2 执行操作5 ，操作数为c5和c6， 
+; 传送结果到R3 (单次32位字) 
+MCR 6,0,R4,c6 ; 请求协处理器6执行操作0，操作数为R4 
+;结果送到c6
+BIC―――――位清除指令
+BIC{cond}{S} Rd,Rn,operand2 
+BIC指令将Rn 的值与操作数operand2 的反码按位逻辑”与”，结果存放到目的寄存器Rd
  */
 _start:
 	ldr pc, =Reset_Handler		/* 复位中断 					*/	
@@ -38,7 +51,15 @@ Reset_Handler:
     bic     r0,  r0, #0x1             /* 清除C1寄存器的bit0(M位)，关闭MMU				       	*/
     mcr     p15, 0, r0, c1, c0, 0     /* 将r0寄存器中的值写入到CP15的C1寄存器中	 				*/
 
-	
+/* 
+DSB
+	数据同步隔离。比 DMB 严格： 仅当所有在它前面的存储器访问操作
+	都执行完毕后，才执行在它后面的指令（亦即任何指令都要等待存储器访问操作
+ISB
+	指令同步隔离。最严格：它会清洗流水线，以保证所有它前面的指令都执
+	行完毕之后，才执行它后面的指令。
+mcr p15, 0, r0, c12, c0, 0 请求协处理器15执行操作0, 操作书为R0, 结果送到C12
+ */
 #if 0
 	/* 汇编版本设置中断向量表偏移 */
 	ldr r0, =0X87800000
@@ -55,9 +76,27 @@ Reset_Handler:
 	 * 堆栈指针地址一定要是4字节地址对齐的！！！
 	 * DDR范围:0X80000000~0X9FFFFFFF
 	 */
+	/*
+	* 
+CPSR 程序状态寄存器(current program status register) 
+	ARM每种工作模式除R0~R15共16个寄存器外，还有第17个寄存器CPSR,叫做 当前程序状态寄存器
+SPSR程序保存状态寄存器(saved program status register)
+	SPSR用于保存CPSR的状态，以便异常返回后恢复异常发生时的工作状态。当特定的异常中断发生时，
+	这个寄存器用于存放当前程序状态寄存器的内容。在异常中断退出时，可以用SPSR来恢复CPSR。
+MRS 指令:  
+	对状态寄存器CPSR和SPSR进行读操作。通过读CPSR可以获得当前处理器的工作状态。
+	读SPSR寄存器可以获得进入异常前的处理器状态（因为只有异常模式下有SPSR寄存器）。
+
+MSR指令:    
+	对状态寄存器CPSR和SPSR进行写操作。
+	与MRS配合使用，可以实现对CPSR或SPSR寄存器的读-修改-写操作，可以切换处理器模式、
+	或者允许/禁止IRQ/FIQ中断等。
+ORR{条件}{S} 目的寄存器，操作数 1，操作数 2
+	ORR 指令用于在两个操作数上进行逻辑或运算，并把结果放置到目的寄存器中。
+	* */
 	/* 进入IRQ模式 */
-	mrs r0, cpsr
-	bic r0, r0, #0x1f 	/* 将r0寄存器中的低5位清零，也就是cpsr的M0~M4 	*/
+	mrs r0, cpsr		/* 读状态寄存器CPSR的数据到R0中 */
+	bic r0, r0, #0x1f 	/* 将r0寄存器中的低5位清零(r0&0xE0)，也就是cpsr的M0~M4 	*/
 	orr r0, r0, #0x12 	/* r0或上0x13,表示使用IRQ模式					*/
 	msr cpsr, r0		/* 将r0 的数据写入到cpsr_c中 					*/
 	ldr sp, =0x80600000	/* 设置IRQ模式下的栈首地址为0X80600000,大小为2MB */
