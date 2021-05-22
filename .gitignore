@@ -138,3 +138,14 @@
 8_clk/obj/bsp_gpio.o
 8_clk/obj/bsp_delay.o
 8_clk/obj/bsp_key.o
+9_int/int.bin
+9_int/obj/bsp_beep.o
+9_int/obj/bsp_clk.o
+9_int/obj/bsp_int.o
+9_int/obj/main.o
+9_int/obj/bsp_gpio.o
+9_int/obj/bsp_key.o
+9_int/obj/bsp_exit.o
+9_int/obj/bsp_led.o
+9_int/obj/bsp_delay.o
+9_int/obj/start.o
