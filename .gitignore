@@ -197,3 +197,17 @@
 10_epit_timer/.vscode/c_cpp_properties.json
 9_int/imxdownload
 9_int/load.imx
+10_epit_timer/obj/bsp_beep.o
+10_epit_timer/obj/bsp_gpio.o
+.gitignore
+10_epit_timer/obj/start.o
+10_epit_timer/obj/main.o
+10_epit_timer/obj/bsp_led.o
+10_epit_timer/obj/bsp_key.o
+10_epit_timer/obj/bsp_int.o
+10_epit_timer/obj/bsp_exit.o
+10_epit_timer/obj/bsp_epittimer.o
+10_epit_timer/obj/bsp_delay.o
+10_epit_timer/obj/bsp_clk.o
+.gitignore
+10_epit_timer/epit.bin

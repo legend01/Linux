@@ -1,18 +1,8 @@
-/***************************************************************
-Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
-文件名	: 	 bsp_epittimer.c
-作者	   : 左忠凯
-版本	   : V1.0
-描述	   : EPIT定时器驱动文件。
-其他	   : 配置EPIT定时器，实现EPIT定时器中断处理函数
-论坛 	   : www.openedv.com
-日志	   : 初版V1.0 2019/1/5 左忠凯创建
-***************************************************************/
 #include "bsp_epittimer.h"
 #include "bsp_int.h"
 #include "bsp_led.h"
 
-/*
+/* EPIT Enhanced periodic Interrupt Timer 增强的周期中断定时器
  * @description		: 初始化EPIT定时器.
  *					  EPIT定时器是32位向下计数器,时钟源使用ipg=66Mhz		 
  * @param - frac	: 分频值，范围为0~4095，分别对应1~4096分频。
