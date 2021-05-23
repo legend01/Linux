@@ -255,3 +255,16 @@
 11_key_filter/SI/keyfilter.si4project/keyfilter.siproj_settings.xml
 11_key_filter/SI/keyfilter.si4project/keyfilter.siwork
 11_key_filter/SI/keyfilter.si4project/keyfilter.snippets.xml
+11_key_filter/obj/bsp_beep.o
+11_key_filter/obj/bsp_clk.o
+11_key_filter/obj/bsp_epittimer.o
+11_key_filter/obj/bsp_gpio.o
+11_key_filter/obj/bsp_int.o
+11_key_filter/obj/bsp_key.o
+11_key_filter/obj/bsp_keyfilter.o
+11_key_filter/obj/bsp_led.o
+11_key_filter/obj/main.o
+11_key_filter/obj/start.o
+11_key_filter/obj/bsp_exit.o
+11_key_filter/obj/bsp_delay.o
+11_key_filter/keyfilter.bin
