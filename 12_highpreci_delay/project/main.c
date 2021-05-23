@@ -40,6 +40,7 @@ int main(void)
 	{	
 		state = !state;
 		led_switch(LED0, state);
+		beep_switch(state);
 		delayms(500);
 	}
 

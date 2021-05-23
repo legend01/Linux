@@ -1,20 +1,3 @@
-/***************************************************************
-Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
-文件名	: 	 bsp_delay.c
-作者	   : 左忠凯
-版本	   : V1.0
-描述	   : 延时文件。
-其他	   : 无
-论坛 	   : www.openedv.com
-日志	   : 初版V1.0 2019/1/4 左忠凯创建
-
-		 V2.0 2019/1/15	左忠凯修改
-		 使用定时器GPT实现高精度延时,添加了：
-		 delay_init 延时初始化函数
-		 gpt1_irqhandler gpt1定时器中断处理函数
-		 delayus us延时函数
-		 delayms ms延时函数
-***************************************************************/
 #include "bsp_delay.h"
 
 /*

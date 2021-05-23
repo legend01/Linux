@@ -313,3 +313,16 @@
 12_highpreci_delay/hithperci_delay.code-workspace
 12_highpreci_delay/.vscode/c_cpp_properties.json
 12_highpreci_delay/.vscode/ipch/b38c0f2a7e76429c/mmap_address.bin
+12_highpreci_delay/delay.bin
+12_highpreci_delay/obj/bsp_beep.o
+12_highpreci_delay/obj/bsp_clk.o
+12_highpreci_delay/obj/bsp_delay.o
+12_highpreci_delay/obj/bsp_epittimer.o
+12_highpreci_delay/obj/bsp_exit.o
+12_highpreci_delay/obj/bsp_int.o
+12_highpreci_delay/obj/bsp_gpio.o
+12_highpreci_delay/obj/bsp_key.o
+12_highpreci_delay/obj/bsp_keyfilter.o
+12_highpreci_delay/obj/bsp_led.o
+12_highpreci_delay/obj/main.o
+12_highpreci_delay/obj/start.o
