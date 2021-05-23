@@ -653,61 +653,60 @@ Disassembly of section .text:
 8780068e:	bd38      	pop	{r3, r4, r5, pc}
 
 87800690 <epit1_irqhandler>:
-87800690:	b508      	push	{r3, lr}
-87800692:	f640 4368 	movw	r3, #3176	; 0xc68
-87800696:	f2c8 7380 	movt	r3, #34688	; 0x8780
-8780069a:	2200      	movs	r2, #0
-8780069c:	f2c0 220d 	movt	r2, #525	; 0x20d
-878006a0:	7819      	ldrb	r1, [r3, #0]
+87800690:	b510      	push	{r4, lr}
+87800692:	f640 4468 	movw	r4, #3176	; 0xc68
+87800696:	f2c8 7480 	movt	r4, #34688	; 0x8780
+8780069a:	2300      	movs	r3, #0
+8780069c:	f2c0 230d 	movt	r3, #525	; 0x20d
+878006a0:	7821      	ldrb	r1, [r4, #0]
 878006a2:	fab1 f181 	clz	r1, r1
 878006a6:	0949      	lsrs	r1, r1, #5
-878006a8:	7019      	strb	r1, [r3, #0]
-878006aa:	6853      	ldr	r3, [r2, #4]
+878006a8:	7021      	strb	r1, [r4, #0]
+878006aa:	685b      	ldr	r3, [r3, #4]
 878006ac:	07db      	lsls	r3, r3, #31
-878006ae:	d502      	bpl.n	878006b6 <epit1_irqhandler+0x26>
+878006ae:	d505      	bpl.n	878006bc <epit1_irqhandler+0x2c>
 878006b0:	2000      	movs	r0, #0
 878006b2:	f7ff fdd7 	bl	87800264 <led_switch>
-878006b6:	2300      	movs	r3, #0
-878006b8:	f2c0 230d 	movt	r3, #525	; 0x20d
-878006bc:	685a      	ldr	r2, [r3, #4]
-878006be:	f042 0201 	orr.w	r2, r2, #1
-878006c2:	605a      	str	r2, [r3, #4]
-878006c4:	bd08      	pop	{r3, pc}
-878006c6:	bf00      	nop
+878006b6:	7820      	ldrb	r0, [r4, #0]
+878006b8:	f7ff fe24 	bl	87800304 <beep_switch>
+878006bc:	2300      	movs	r3, #0
+878006be:	f2c0 230d 	movt	r3, #525	; 0x20d
+878006c2:	685a      	ldr	r2, [r3, #4]
+878006c4:	f042 0201 	orr.w	r2, r2, #1
+878006c8:	605a      	str	r2, [r3, #4]
+878006ca:	bd10      	pop	{r4, pc}
 
-878006c8 <epit1_init>:
-878006c8:	f640 73ff 	movw	r3, #4095	; 0xfff
-878006cc:	4298      	cmp	r0, r3
-878006ce:	b570      	push	{r4, r5, r6, lr}
-878006d0:	f04f 0400 	mov.w	r4, #0
-878006d4:	f2c0 240d 	movt	r4, #525	; 0x20d
-878006d8:	bf28      	it	cs
-878006da:	4618      	movcs	r0, r3
-878006dc:	230e      	movs	r3, #14
-878006de:	f2c0 1300 	movt	r3, #256	; 0x100
-878006e2:	2200      	movs	r2, #0
-878006e4:	ea43 1300 	orr.w	r3, r3, r0, lsl #4
-878006e8:	6022      	str	r2, [r4, #0]
-878006ea:	6023      	str	r3, [r4, #0]
-878006ec:	60a1      	str	r1, [r4, #8]
-878006ee:	60e2      	str	r2, [r4, #12]
-878006f0:	ee9f 3f10 	mrc	15, 4, r3, cr15, cr0, {0}
-878006f4:	0c1b      	lsrs	r3, r3, #16
-878006f6:	f241 1508 	movw	r5, #4360	; 0x1108
-878006fa:	f04f 7680 	mov.w	r6, #16777216	; 0x1000000
-878006fe:	f240 6191 	movw	r1, #1681	; 0x691
-87800702:	041b      	lsls	r3, r3, #16
-87800704:	2058      	movs	r0, #88	; 0x58
-87800706:	f2c8 7180 	movt	r1, #34688	; 0x8780
-8780070a:	515e      	str	r6, [r3, r5]
-8780070c:	f7ff ffa0 	bl	87800650 <system_register_irqhandler>
-87800710:	6823      	ldr	r3, [r4, #0]
-87800712:	f043 0301 	orr.w	r3, r3, #1
-87800716:	6023      	str	r3, [r4, #0]
-87800718:	bd70      	pop	{r4, r5, r6, pc}
-8780071a:	bf00      	nop
-8780071c:	0000      	movs	r0, r0
-	...
+878006cc <epit1_init>:
+878006cc:	f640 73ff 	movw	r3, #4095	; 0xfff
+878006d0:	4298      	cmp	r0, r3
+878006d2:	b570      	push	{r4, r5, r6, lr}
+878006d4:	f04f 0400 	mov.w	r4, #0
+878006d8:	f2c0 240d 	movt	r4, #525	; 0x20d
+878006dc:	bf28      	it	cs
+878006de:	4618      	movcs	r0, r3
+878006e0:	230e      	movs	r3, #14
+878006e2:	f2c0 1300 	movt	r3, #256	; 0x100
+878006e6:	2200      	movs	r2, #0
+878006e8:	ea43 1300 	orr.w	r3, r3, r0, lsl #4
+878006ec:	6022      	str	r2, [r4, #0]
+878006ee:	6023      	str	r3, [r4, #0]
+878006f0:	60a1      	str	r1, [r4, #8]
+878006f2:	60e2      	str	r2, [r4, #12]
+878006f4:	ee9f 3f10 	mrc	15, 4, r3, cr15, cr0, {0}
+878006f8:	0c1b      	lsrs	r3, r3, #16
+878006fa:	f241 1508 	movw	r5, #4360	; 0x1108
+878006fe:	f04f 7680 	mov.w	r6, #16777216	; 0x1000000
+87800702:	f240 6191 	movw	r1, #1681	; 0x691
+87800706:	041b      	lsls	r3, r3, #16
+87800708:	2058      	movs	r0, #88	; 0x58
+8780070a:	f2c8 7180 	movt	r1, #34688	; 0x8780
+8780070e:	515e      	str	r6, [r3, r5]
+87800710:	f7ff ff9e 	bl	87800650 <system_register_irqhandler>
+87800714:	6823      	ldr	r3, [r4, #0]
+87800716:	f043 0301 	orr.w	r3, r3, #1
+8780071a:	6023      	str	r3, [r4, #0]
+8780071c:	bd70      	pop	{r4, r5, r6, pc}
+8780071e:	bf00      	nop
 
 87800720 <__main_from_arm>:
 87800720:	e51ff004 	ldr	pc, [pc, #-4]	; 87800724 <__main_from_arm+0x4>
@@ -726,7 +725,7 @@ Disassembly of section .text.startup:
 87800742:	f648 2140 	movw	r1, #35392	; 0x8a40
 87800746:	2000      	movs	r0, #0
 87800748:	f2c0 11f7 	movt	r1, #503	; 0x1f7
-8780074c:	f7ff ffbc 	bl	878006c8 <epit1_init>
+8780074c:	f7ff ffbe 	bl	878006cc <epit1_init>
 87800750:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
 87800754:	f7ff fda6 	bl	878002a4 <delay>
 87800758:	e7fa      	b.n	87800750 <main+0x28>
