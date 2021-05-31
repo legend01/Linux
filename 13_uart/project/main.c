@@ -1,15 +1,3 @@
-/**************************************************************
-Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
-文件名	: 	 mian.c
-作者	   : 左忠凯
-版本	   : V1.0
-描述	   : I.MX6U开发板裸机实验13 串口实验
-其他	   : 本实验我们学习如何使用I.MX6的串口，实现串口收发数据，了解
-		 I.MX6的串口工作原理。
-论坛 	   : www.openedv.com
-在线教育	: www.yuanzige.com
-日志	   : 初版V1.0 2019/1/15 左忠凯创建
-**************************************************************/
 #include "bsp_clk.h"
 #include "bsp_delay.h"
 #include "bsp_led.h"
@@ -38,13 +26,13 @@ int main(void)
 
 	while(1)				
 	{	
-		puts("请输入1个字符:");
+		puts("Input one char:");
 		a=getc();
 		putc(a);	//回显功能
 		puts("\r\n");
 
 		//显示输入的字符
-		puts("您输入的字符为:");
+		puts("Your Input string:");
 		putc(a);
 		puts("\r\n\r\n");
 		
