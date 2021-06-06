@@ -8,7 +8,7 @@ OBJDUMP 		:= $(CROSS_COMPILE)objdump
 
 LIBPATH			:= -lgcc -L /usr/local/arm/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/4.9.4
 
-
+#增加字符处理函数头文件
 INCDIRS 		:= imx6ul \
 				   stdio/include \
 				   bsp/clk \
@@ -22,7 +22,7 @@ INCDIRS 		:= imx6ul \
 				   bsp/epittimer \
 				   bsp/keyfilter \
 				   bsp/uart 
-				   			   
+#添加stdio相关.c函数路径				   			   
 SRCDIRS			:= project \
 				   stdio/lib \
 				   bsp/clk \

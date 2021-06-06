@@ -24,8 +24,7 @@ void uart_init(void)
 	uart_disable(UART1);	/* 先关闭UART1 		*/
 	uart_softreset(UART1);	/* 软件复位UART1 		*/
 
-	UART1->
-UCR1 = 0;		/* 先清除UCR1寄存器 */
+	UART1->UCR1 = 0;		/* 先清除UCR1寄存器 */
 	
 	/*
      * 设置UART的UCR2寄存器，设置内容包括字长，停止位，校验模式，关闭RTS硬件流控
