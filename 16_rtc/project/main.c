@@ -33,6 +33,7 @@ int main(void)
 	unsigned char key = 0;
 	int i = 3, t = 0;
 	char buf[160];
+	char keyState[20];
 	struct rtc_datetime rtcdate;
 	unsigned char state = OFF;
 
@@ -53,6 +54,7 @@ int main(void)
 	lcd_show_string(50, 60, 200, 16, 16, (char*)"2019/3/27");  
 	tftlcd_dev.forecolor = LCD_BLUE;
 	memset(buf, 0, sizeof(buf));
+	memset(keyState, 0, sizeof(keyState));
 	
 	while(1)
 	{
@@ -70,6 +72,9 @@ int main(void)
 		}
 
 		key = key_getvalue();
+		lcd_show_string(50, 150, 200, 16, 16, (char *)"lihelinlovewet");
+		sprintf(keyState, "keyState: %d\r\n", key);
+		lcd_show_string(50, 180, 200, 16, 16, keyState);
 		if(key == KEY0_VALUE)
 		{
 			rtcdate.year = 2018;
