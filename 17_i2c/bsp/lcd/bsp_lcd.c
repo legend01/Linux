@@ -113,7 +113,8 @@ void lcd_init(void)
 	 * 设置HSYNC周期
 	 * bit[18] 1 : 当使用VSHYNC、HSYNC、DOTCLK的话此为置1
 	 * bit[17:0]  : 宽度
-	 */ 	
+	 */ 
+	
 	LCDIF->VDCTRL4 = (1<<18) | (tftlcd_dev.width);
 
 	/*
@@ -196,7 +197,8 @@ void lcdgpio_init(void)
 	IOMUXC_SetPinMux(IOMUXC_LCD_DATA15_LCDIF_DATA15,0);
 
 	IOMUXC_SetPinMux(IOMUXC_LCD_DATA16_LCDIF_DATA16,0);
-	IOMUXC_SetPinMux(IOMUXC_LCD_DATA17_LCDIF_DATA17,0);
+	
+IOMUXC_SetPinMux(IOMUXC_LCD_DATA17_LCDIF_DATA17,0);
 	IOMUXC_SetPinMux(IOMUXC_LCD_DATA18_LCDIF_DATA18,0);
 	IOMUXC_SetPinMux(IOMUXC_LCD_DATA19_LCDIF_DATA19,0);
 	IOMUXC_SetPinMux(IOMUXC_LCD_DATA20_LCDIF_DATA20,0);
@@ -346,7 +348,7 @@ void lcd_enable(void)
  * @param - color	: 颜色值
  * @return 			: 无
  */
-inline void lcd_drawpoint(unsigned short x,unsigned short y,unsigned int color)
+void lcd_drawpoint(unsigned short x,unsigned short y,unsigned int color)
 { 
   	*(unsigned int*)((unsigned int)tftlcd_dev.framebuffer + 
 		             tftlcd_dev.pixsize * (tftlcd_dev.width * y+x))=color;
@@ -359,7 +361,7 @@ inline void lcd_drawpoint(unsigned short x,unsigned short y,unsigned int color)
  * @param - y		: y轴坐标
  * @return 			: 读取到的指定点的颜色值
  */
-inline unsigned int lcd_readpoint(unsigned short x,unsigned short y)
+unsigned int lcd_readpoint(unsigned short x,unsigned short y)
 { 
 	return *(unsigned int*)((unsigned int)tftlcd_dev.framebuffer + 
 		   tftlcd_dev.pixsize * (tftlcd_dev.width * y + x));

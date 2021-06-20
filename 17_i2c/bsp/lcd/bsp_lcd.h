@@ -72,8 +72,8 @@ void lcd_noreset(void);
 void lcd_enable(void);
 void video_pllinit(unsigned char loopdivi, unsigned char postdivi);
 
-inline void lcd_drawpoint(unsigned short x,unsigned short y,unsigned int color);
-inline unsigned int lcd_readpoint(unsigned short x,unsigned short y);
+void lcd_drawpoint(unsigned short x,unsigned short y,unsigned int color);
+unsigned int lcd_readpoint(unsigned short x,unsigned short y);
 void lcd_clear(unsigned int color);
 void lcd_fill(unsigned    short x0, unsigned short y0, unsigned short x1, unsigned short y1, unsigned int color);
 #endif

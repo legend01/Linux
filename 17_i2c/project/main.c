@@ -1,15 +1,3 @@
-/**************************************************************
-Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
-文件名	: 	 mian.c
-作者	   : 左忠凯
-版本	   : V1.0
-描述	   : I.MX6U开发板裸机实验18 IIC实验
-其他	   : IIC是最常用的接口，ZERO开发板上有多个IIC外设，本实验就
-		 来学习如何驱动I.MX6U的IIC接口，并且通过IIC接口读取板载
-		 AP3216C的数据值。
-论坛 	   : www.wtmembed.com
-日志	   : 初版V1.0 2019/1/15 左忠凯创建
-**************************************************************/
 #include "bsp_clk.h"
 #include "bsp_delay.h"
 #include "bsp_led.h"
@@ -56,9 +44,9 @@ int main(void)
 	}	
 	
 	lcd_show_string(30, 130, 200, 16, 16, (char*)"AP3216C Ready!");  
-    lcd_show_string(30, 160, 200, 16, 16, (char*)" IR:");	 
-	lcd_show_string(30, 180, 200, 16, 16, (char*)" PS:");	
-	lcd_show_string(30, 200, 200, 16, 16, (char*)"ALS:");	
+    lcd_show_string(30, 160, 200, 16, 16, (char*)" IR:"); //!_ALS 环境光强度 PS 接近距离 IR 红外强度
+	lcd_show_string(30, 180, 200, 16, 16, (char*)" PS:");
+	lcd_show_string(30, 200, 200, 16, 16, (char*)"ALS:");
 	tftlcd_dev.forecolor = LCD_BLUE;	
 	while(1)					
 	{
