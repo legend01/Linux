@@ -44,16 +44,16 @@ int main(void)
 	}	
 	
 	lcd_show_string(30, 130, 200, 16, 16, (char*)"AP3216C Ready!");  
-    lcd_show_string(30, 160, 200, 16, 16, (char*)" IR:"); //!_ALS 环境光强度 PS 接近距离 IR 红外强度
-	lcd_show_string(30, 180, 200, 16, 16, (char*)" PS:");
-	lcd_show_string(30, 200, 200, 16, 16, (char*)"ALS:");
+    lcd_show_string(30, 160, 200, 16, 16, (char*)" IR(Infrared intensity):"); //!_ALS 环境光强度 PS 接近距离 IR 红外强度
+	lcd_show_string(30, 180, 200, 16, 16, (char*)" PS(Approach distance):");
+	lcd_show_string(30, 200, 200, 16, 16, (char*)"ALS(Ambient light intensity):");
 	tftlcd_dev.forecolor = LCD_BLUE;	
 	while(1)					
 	{
 		ap3216c_readdata(&ir, &ps, &als);		/* 读取数据		  	*/
-		lcd_shownum(30 + 32, 160, ir, 5, 16);	/* 显示IR数据 		*/
-        lcd_shownum(30 + 32, 180, ps, 5, 16);	/* 显示PS数据 		*/
-        lcd_shownum(30 + 32, 200, als, 5, 16);	/* 显示ALS数据 	*/ 
+		lcd_shownum(30 + 300, 160, ir, 5, 16);	/* 显示IR数据 		*/
+        lcd_shownum(30 + 300, 180, ps, 5, 16);	/* 显示PS数据 		*/
+        lcd_shownum(30 + 300, 200, als, 5, 16);	/* 显示ALS数据 	*/ 
 		delayms(120);
 		state = !state;
 		led_switch(LED0,state);	
