@@ -437,7 +437,7 @@ void lcd_enable(void)
  * @param - color	: 颜色值
  * @return 			: 无
  */
-inline void lcd_drawpoint(unsigned short x,unsigned short y,unsigned int color)
+void lcd_drawpoint(unsigned short x,unsigned short y,unsigned int color)
 { 
   	*(unsigned int*)((unsigned int)tftlcd_dev.framebuffer + 
 		             tftlcd_dev.pixsize * (tftlcd_dev.width * y+x))=color;
@@ -450,7 +450,7 @@ inline void lcd_drawpoint(unsigned short x,unsigned short y,unsigned int color)
  * @param - y		: y轴坐标
  * @return 			: 读取到的指定点的颜色值
  */
-inline unsigned int lcd_readpoint(unsigned short x,unsigned short y)
+unsigned int lcd_readpoint(unsigned short x,unsigned short y)
 { 
 	return *(unsigned int*)((unsigned int)tftlcd_dev.framebuffer + 
 		   tftlcd_dev.pixsize * (tftlcd_dev.width * y + x));
