@@ -104,6 +104,7 @@ int main(void)
 			lcd_shownum(50 + 72, 270, ft5426_dev.y[3], 5, 16);
 			lcd_shownum(50 + 72, 290, ft5426_dev.x[4], 5, 16);
 			lcd_shownum(50 + 72, 310, ft5426_dev.y[4], 5, 16);
+			lcd_show_string(50, 330, 200, 16, 16, (char *)"ATK7016 ATK7084");
 		} else if(tftlcd_dev.id == ATK4384|| tftlcd_dev.id == ATK4342) {
 			lcd_shownum(50 + 72, 110, gt9147_dev.point_num , 1, 16);
 			lcd_shownum(50 + 72, 130, gt9147_dev.x[0], 5, 16);
@@ -116,6 +117,7 @@ int main(void)
 			lcd_shownum(50 + 72, 270, gt9147_dev.y[3], 5, 16);
 			lcd_shownum(50 + 72, 290, gt9147_dev.x[4], 5, 16);
 			lcd_shownum(50 + 72, 310, gt9147_dev.y[4], 5, 16);
+			lcd_show_string(50, 330, 200, 16, 16, (char *)"ATK4384 ATK4342");
 		}
 		delayms(10);
 		i++;

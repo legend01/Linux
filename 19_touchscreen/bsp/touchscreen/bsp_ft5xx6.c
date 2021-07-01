@@ -220,7 +220,8 @@ void ft5426_read_tpcoord(void)
 		ft5426_dev.x[i] = ((buf[2] << 8) | buf[3]) & 0x0fff;
 		ft5426_dev.y[i] = ((buf[0] << 8) | buf[1]) & 0x0fff;
 		
-		type = buf[0] >> 6;	/* 获取触摸类型 */		
+		type = buf[0] >> 6;	/* 获取触摸类型 */
+		
 
 		/* 以第一个触摸点为例，寄存器TOUCH1_YH(地址0X05),各位描述如下：
 		 * bit7:4  Touch ID  触摸ID，表示是哪个触摸点
@@ -232,7 +233,8 @@ void ft5426_read_tpcoord(void)
 		{
 		
 		} else  {	/* 释放 */	
-			
+			ft5426_dev.x[i] = 0;
+			ft5426_dev.y[i] = 0;
 		}
 	}	
 }
