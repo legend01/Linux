@@ -61,8 +61,7 @@ void backlight_init(void)
 	/*
    	 * 初始化寄存器PWMCR
    	 * bit[27:26]	: 01  当FIFO中空余位置大于等于2的时候FIFO空标志值位
-   	 * bit[25]		:
- 0  停止模式下PWM不工作
+   	 * bit[25]		: 0   停止模式下PWM不工作
    	 * bit[24]		: 0	  休眠模式下PWM不工作
    	 * bit[23]		: 0   等待模式下PWM不工作
    	 * bit[22]		: 0   调试模式下PWM不工作
