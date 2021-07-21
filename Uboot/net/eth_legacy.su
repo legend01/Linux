@@ -5,7 +5,7 @@ eth_legacy.c:47:6:eth_set_dev	0	static
 eth_legacy.c:52:20:eth_get_dev_by_name	16	static
 eth_legacy.c:74:20:eth_get_dev_by_index	0	static
 eth_legacy.c:94:5:eth_get_dev_index	0	static
-eth_legacy.c:133:5:eth_write_hwaddr	24	static
+eth_legacy.c:133:5:eth_write_hwaddr	32	static
 eth_legacy.c:184:5:eth_register	16	static
 eth_legacy.c:208:5:eth_unregister	8	static
 eth_legacy.c:237:5:eth_initialize	32	static

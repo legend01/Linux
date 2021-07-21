@@ -18,5 +18,5 @@ nvedit.c:649:5:getenv_f	32	static
 nvedit.c:625:7:getenv	48	static
 nvedit.c:330:7:getenv_hex	24	static
 nvedit.c:693:7:getenv_ulong	16	static
-nvedit.c:583:12:do_env_edit.part.3	544	static
+nvedit.c:583:12:do_env_edit.part.2	544	static
 nvedit.c:583:12:do_env_edit	0	static

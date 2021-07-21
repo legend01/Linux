@@ -5,7 +5,7 @@ uclass.c:151:5:uclass_find_device	24	static
 uclass.c:174:5:uclass_find_first_device	16	static
 uclass.c:191:5:uclass_find_next_device	0	static
 uclass.c:204:5:uclass_find_device_by_name	32	static
-uclass.c:228:5:uclass_find_device_by_seq	32	static
+uclass.c:228:5:uclass_find_device_by_seq	24	static
 uclass.c:257:5:uclass_find_device_by_of_offset	24	static
 uclass.c:314:5:uclass_get_device_tail	16	static
 uclass.c:330:5:uclass_get_device	16	static

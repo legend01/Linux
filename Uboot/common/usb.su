@@ -20,7 +20,7 @@ usb.c:706:5:usb_get_report	32	static
 usb.c:718:5:usb_get_class_descriptor	32	static
 usb.c:805:5:usb_string	600	static
 usb.c:866:20:usb_get_dev_index	0	static
-usb.c:874:5:usb_alloc_new_device	16	static
+usb.c:874:5:usb_alloc_new_device	24	static
 usb.c:900:6:usb_free_device	16	static
 usb.c:914:12:usb_alloc_device	0	static
 usb.c:1076:5:usb_select_config	64	static

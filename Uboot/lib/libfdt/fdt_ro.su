@@ -18,11 +18,11 @@ fdt_ro.c:301:10:fdt_get_phandle	24	static
 fdt_ro.c:318:13:fdt_get_alias_namelen	24	static
 fdt_ro.c:135:5:fdt_path_offset	24	static
 fdt_ro.c:330:13:fdt_get_alias	16	static
-fdt_ro.c:335:5:fdt_get_path	48	static
+fdt_ro.c:335:5:fdt_get_path	40	static
 fdt_ro.c:387:5:fdt_supernode_atdepth_offset	40	static
 fdt_ro.c:423:5:fdt_node_depth	16	static
 fdt_ro.c:434:5:fdt_parent_offset	16	static
-fdt_ro.c:444:5:fdt_node_offset_by_prop_value	40	static
+fdt_ro.c:444:5:fdt_node_offset_by_prop_value	32	static
 fdt_ro.c:471:5:fdt_node_offset_by_phandle	16	static
 fdt_ro.c:496:5:fdt_stringlist_contains	24	static
 fdt_ro.c:513:5:fdt_count_strings	24	static
@@ -30,4 +30,4 @@ fdt_ro.c:533:5:fdt_find_string	32	static
 fdt_ro.c:559:5:fdt_get_string_index	24	static
 fdt_ro.c:583:5:fdt_get_string	16	static
 fdt_ro.c:589:5:fdt_node_check_compatible	16	static
-fdt_ro.c:604:5:fdt_node_offset_by_compatible	24	static
+fdt_ro.c:604:5:fdt_node_offset_by_compatible	16	static

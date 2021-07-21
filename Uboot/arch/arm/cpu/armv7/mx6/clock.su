@@ -2,7 +2,7 @@ clock.c:572:12:disable_lcdif_clock	8	static
 clock.c:386:12:get_ipg_clk	8	static
 clock.c:622:12:enable_pll_video.constprop	16	static
 clock.c:414:12:get_uart_clk	16	static
-clock.c:294:12:mxc_get_pll_pfd	24	static
+clock.c:294:12:mxc_get_pll_pfd	16	static
 clock.c:1122:12:get_usdhc_clk	16	static
 clock.c:28:6:enable_ocotp_clk	0	static
 clock.c:95:6:enable_usboh3_clk	0	static
