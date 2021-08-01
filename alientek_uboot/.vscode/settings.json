@@ -1,0 +1,37 @@
+{
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/arch/avr32": true,
+    },
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/arch/avr32": true,
+        "**/*.o": true,
+        "**/*.su": true,
+        "**/*.cmd": true,
+        "**/arch/arc": true,
+        "**/arch/blackfin": true,
+        "**/arch/m68k": true,
+        "**/arch/microblaze": true,
+        "**/arch/mips":true,
+        "**/arch/nds32": true,
+        "**/arch/nios2": true,
+        "**/arch/openrisc": true,
+        "**/arch/powerpc": true,
+        "**/arch/sandbox": true,
+        "**/arch/sh": true,
+        "**/arch/sparc": true,
+        "**/arch/x86": true,
+        "**/arch/arm/mach*":true,
+        "**/arch/arm/cpu/armll*": true,
+        "**/arch/arm/cpu/arm70t": true,
+        "**/arch/arm/cpu/arm9*": true,
+        
+    }
+}
