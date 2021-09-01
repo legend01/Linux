@@ -88,21 +88,23 @@ DECLARE_GLOBAL_DATA_PTR;
 	PAD_CTL_PUS_47K_UP  | PAD_CTL_SPEED_LOW |		\
 	PAD_CTL_DSE_80ohm   | PAD_CTL_SRE_FAST  | PAD_CTL_HYS)
 
-#define IOX_SDI IMX_GPIO_NR(5, 10)
-#define IOX_STCP IMX_GPIO_NR(5, 7)
-#define IOX_SHCP IMX_GPIO_NR(5, 11)
-#define IOX_OE IMX_GPIO_NR(5, 8)
+// #define IOX_SDI IMX_GPIO_NR(5, 10)
+// #define IOX_STCP IMX_GPIO_NR(5, 7)
+// #define IOX_SHCP IMX_GPIO_NR(5, 11)
+// #define IOX_OE IMX_GPIO_NR(5, 8)
+#define ENET1_RESET IMX_GPIO_NR(5, 7)
+#define ENET2_RESET IMX_GPIO_NR(5, 8)
 
-static iomux_v3_cfg_t const iox_pads[] = {
-	/* IOX_SDI */
-	MX6_PAD_BOOT_MODE0__GPIO5_IO10 | MUX_PAD_CTRL(NO_PAD_CTRL),
-	/* IOX_SHCP */
-	MX6_PAD_BOOT_MODE1__GPIO5_IO11 | MUX_PAD_CTRL(NO_PAD_CTRL),
-	/* IOX_STCP */
-	MX6_PAD_SNVS_TAMPER7__GPIO5_IO07 | MUX_PAD_CTRL(NO_PAD_CTRL),
-	/* IOX_nOE */
-	MX6_PAD_SNVS_TAMPER8__GPIO5_IO08 | MUX_PAD_CTRL(NO_PAD_CTRL),
-};
+// static iomux_v3_cfg_t const iox_pads[] = {
+// 	/* IOX_SDI */
+// 	MX6_PAD_BOOT_MODE0__GPIO5_IO10 | MUX_PAD_CTRL(NO_PAD_CTRL),
+// 	/* IOX_SHCP */
+// 	MX6_PAD_BOOT_MODE1__GPIO5_IO11 | MUX_PAD_CTRL(NO_PAD_CTRL),
+// 	/* IOX_STCP */
+// 	MX6_PAD_SNVS_TAMPER7__GPIO5_IO07 | MUX_PAD_CTRL(NO_PAD_CTRL),
+// 	/* IOX_nOE */
+// 	MX6_PAD_SNVS_TAMPER8__GPIO5_IO08 | MUX_PAD_CTRL(NO_PAD_CTRL),
+// };
 
 /*
  * HDMI_nRST --> Q0
@@ -145,80 +147,80 @@ static enum qn_func qn_output[8] = {
 	qn_disable, qn_disable
 };
 
-static void iox74lv_init(void)
-{
-	int i;
+// static void iox74lv_init(void)
+// {
+// 	int i;
 
-	gpio_direction_output(IOX_OE, 0);
+// 	gpio_direction_output(IOX_OE, 0);
 
-	for (i = 7; i >= 0; i--) {
-		gpio_direction_output(IOX_SHCP, 0);
-		gpio_direction_output(IOX_SDI, seq[qn_output[i]][0]);
-		udelay(500);
-		gpio_direction_output(IOX_SHCP, 1);
-		udelay(500);
-	}
+// 	for (i = 7; i >= 0; i--) {
+// 		gpio_direction_output(IOX_SHCP, 0);
+// 		gpio_direction_output(IOX_SDI, seq[qn_output[i]][0]);
+// 		udelay(500);
+// 		gpio_direction_output(IOX_SHCP, 1);
+// 		udelay(500);
+// 	}
 
-	gpio_direction_output(IOX_STCP, 0);
-	udelay(500);
-	/*
-	 * shift register will be output to pins
-	 */
-	gpio_direction_output(IOX_STCP, 1);
+// 	gpio_direction_output(IOX_STCP, 0);
+// 	udelay(500);
+// 	/*
+// 	 * shift register will be output to pins
+// 	 */
+// 	gpio_direction_output(IOX_STCP, 1);
 
-	for (i = 7; i >= 0; i--) {
-		gpio_direction_output(IOX_SHCP, 0);
-		gpio_direction_output(IOX_SDI, seq[qn_output[i]][1]);
-		udelay(500);
-		gpio_direction_output(IOX_SHCP, 1);
-		udelay(500);
-	}
-	gpio_direction_output(IOX_STCP, 0);
-	udelay(500);
-	/*
-	 * shift register will be output to pins
-	 */
-	gpio_direction_output(IOX_STCP, 1);
-};
+// 	for (i = 7; i >= 0; i--) {
+// 		gpio_direction_output(IOX_SHCP, 0);
+// 		gpio_direction_output(IOX_SDI, seq[qn_output[i]][1]);
+// 		udelay(500);
+// 		gpio_direction_output(IOX_SHCP, 1);
+// 		udelay(500);
+// 	}
+// 	gpio_direction_output(IOX_STCP, 0);
+// 	udelay(500);
+// 	/*
+// 	 * shift register will be output to pins
+// 	 */
+// 	gpio_direction_output(IOX_STCP, 1);
+// };
 
-void iox74lv_set(int index)
-{
-	int i;
+// void iox74lv_set(int index)
+// {
+// 	int i;
 
-	for (i = 7; i >= 0; i--) {
-		gpio_direction_output(IOX_SHCP, 0);
+// 	for (i = 7; i >= 0; i--) {
+// 		gpio_direction_output(IOX_SHCP, 0);
 
-		if (i == index)
-			gpio_direction_output(IOX_SDI, seq[qn_output[i]][0]);
-		else
-			gpio_direction_output(IOX_SDI, seq[qn_output[i]][1]);
-		udelay(500);
-		gpio_direction_output(IOX_SHCP, 1);
-		udelay(500);
-	}
+// 		if (i == index)
+// 			gpio_direction_output(IOX_SDI, seq[qn_output[i]][0]);
+// 		else
+// 			gpio_direction_output(IOX_SDI, seq[qn_output[i]][1]);
+// 		udelay(500);
+// 		gpio_direction_output(IOX_SHCP, 1);
+// 		udelay(500);
+// 	}
 
-	gpio_direction_output(IOX_STCP, 0);
-	udelay(500);
-	/*
-	  * shift register will be output to pins
-	  */
-	gpio_direction_output(IOX_STCP, 1);
+// 	gpio_direction_output(IOX_STCP, 0);
+// 	udelay(500);
+// 	/*
+// 	  * shift register will be output to pins
+// 	  */
+// 	gpio_direction_output(IOX_STCP, 1);
 
-	for (i = 7; i >= 0; i--) {
-		gpio_direction_output(IOX_SHCP, 0);
-		gpio_direction_output(IOX_SDI, seq[qn_output[i]][1]);
-		udelay(500);
-		gpio_direction_output(IOX_SHCP, 1);
-		udelay(500);
-	}
+// 	for (i = 7; i >= 0; i--) {
+// 		gpio_direction_output(IOX_SHCP, 0);
+// 		gpio_direction_output(IOX_SDI, seq[qn_output[i]][1]);
+// 		udelay(500);
+// 		gpio_direction_output(IOX_SHCP, 1);
+// 		udelay(500);
+// 	}
 
-	gpio_direction_output(IOX_STCP, 0);
-	udelay(500);
-	/*
-	  * shift register will be output to pins
-	  */
-	gpio_direction_output(IOX_STCP, 1);
-};
+// 	gpio_direction_output(IOX_STCP, 0);
+// 	udelay(500);
+// 	/*
+// 	  * shift register will be output to pins
+// 	  */
+// 	gpio_direction_output(IOX_STCP, 1);
+// };
 
 
 #ifdef CONFIG_SYS_I2C_MXC

@@ -682,3 +682,4 @@
 18_spi/obj/string.o
 18_spi/obj/start.o
 18_spi/obj/vsprintf.o
+alientek_uboot/NXPUboot/uboot-imx-rel_imx_4.1.15_2.1.0_ga/load.imx
