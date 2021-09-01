@@ -138,14 +138,14 @@ enum qn_level {
 	qn_high = 1,
 };
 
-static enum qn_level seq[3][2] = {
-	{0, 1}, {1, 1}, {0, 0}
-};
+// static enum qn_level seq[3][2] = {
+// 	{0, 1}, {1, 1}, {0, 0}
+// };
 
-static enum qn_func qn_output[8] = {
-	qn_reset, qn_reset, qn_reset, qn_enable, qn_disable, qn_reset,
-	qn_disable, qn_disable
-};
+// static enum qn_func qn_output[8] = {
+// 	qn_reset, qn_reset, qn_reset, qn_enable, qn_disable, qn_reset,
+// 	qn_disable, qn_disable
+// };
 
 // static void iox74lv_init(void)
 // {
