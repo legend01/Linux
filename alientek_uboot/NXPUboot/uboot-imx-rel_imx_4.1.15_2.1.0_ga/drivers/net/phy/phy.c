@@ -227,8 +227,8 @@ int genphy_update_link(struct phy_device *phydev)
 	if (lan8720_flag == 0)
 	{
 		bmcr_reg = phy_read(phydev, MDIO_DEVAD_NONE, MII_BMCR);
-		phy_write(phydev, MDID_DEVAD_NONE, MII_BMCR, BMCR_RESET);
-		while (phy_read(phydev, MDIO_DEVAD_NONE, MII_BMCRT) & 0x8000)
+		phy_write(phydev, MDIO_DEVAD_NONE, MII_BMCR, BMCR_RESET);
+		while (phy_read(phydev, MDIO_DEVAD_NONE, MII_BMCR) & 0x8000)
 		{
 			udelay(100);
 		}
