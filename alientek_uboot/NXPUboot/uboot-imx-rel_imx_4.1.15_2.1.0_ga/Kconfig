@@ -238,3 +238,13 @@ source "fs/Kconfig"
 source "lib/Kconfig"
 
 source "test/Kconfig"
+
+menu "My test Menu"
+
+config MY_TESTCONFIG
+	bool "This is my test config"
+	default y
+	help
+	  This is my first test configration
+
+endmenu
