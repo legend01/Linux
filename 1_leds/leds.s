@@ -47,3 +47,24 @@ _start:
     ldr r0, =0x020E02F4
     ldr r1, =0x10B0
     str r1, [r0]
+
+    /*
+    *  设置GPIO
+    *  设置GPIO1_GDIR寄存器,设置GPIO1_GPIO3为输出
+    *  GPIO1_GDIR寄存器地址为0x0209C004,设置GPIO1_GDIR寄存器bit3为1
+    *  GPIO1_IO03为输出
+    */
+    ldr r0, =0x0209C004
+    ldr r1, =0x08
+    str r1, [r0]
+
+    /*
+    *  打开LED,设置GPIO1_IO03为0
+    *  GPIO1_DR寄存器为0x0209C000
+     */
+    ldr r0, =0x0209C000
+    ldr r1, =0x00
+    str r1, [r0]
+
+loop:
+    b loop
